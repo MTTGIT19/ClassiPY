@@ -4,8 +4,13 @@ from wand.image import Image
 from wand.color import Color
 from wand.drawing import Drawing
 
-input_folder = '/home/' + os.getlogin() + '/Pictures/' ## CHANGE THIS TO SCREENSHOT PATH ##
-output_folder = '/home/' + os.getlogin() + '/Desktop/CUI_IMAGES/' # Output location: default desktop
+current_directory = os.path.dirname(os.path.abspath(__file__))
+input_folder = os.path.join(current_directory, 'input_images')  # Folder named input_images
+output_folder = ('/home/'+ os.getlogin() +'/Desktop/SECRET_IMAGES/')  # Folder named output_images
+
+# If you'd like to get fancy you can edit the next two lines to change the input/output paths. 
+#input_folder = '/home/' + os.getlogin() + '/Downloads/screenshots1/' ## CHANGE ME TO SCREENSHOT PATH
+#output_folder = '/home/' + os.getlogin() + '/Desktop/SECRET_IMAGES/' # Output location: default desktop
 
 def add_banner_and_border_to_image(input_image, output_image):
     with Image(filename=input_image) as img:
@@ -36,12 +41,12 @@ def label_folder(input_folder, output_folder):
     if not os.path.exists(output_folder):
         os.makedirs(output_folder)
 
-    for root, dirs, files in os.walk(input_folder):
+    for root, dirs, files in os.walk(current_directory):
         for filename in files:
             if filename.lower().endswith(".jpg") or filename.lower().endswith(".png"):
                 input_path = os.path.join(root, filename)
-                output_path = os.path.join(output_folder, f"(CUI) {filename}")
+                output_path = os.path.join(output_folder, f"(S) {filename}")
 
                 add_banner_and_border_to_image(input_path, output_path)
 
-label_folder(input_folder, output_folder)
+label_folder(current_directory, output_folder)
