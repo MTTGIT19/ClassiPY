@@ -13,10 +13,11 @@ Python3
 ```
 pip3 install wand
 ```
-The default location for the screenshots is your current users 'picture' directory.
-Edit the ending of line 7 if you want to images to be pulled from another location. 
+## Directions
+Each Classipy script runs from it's current directory and outputs to the desktop. Therefore place the script into your folder with screenshots.  
+I you'd like you can edit the files to hardcode different directories.  
 
-That's it! Just make sure to make the file executable.
+That's it! Just remember to make the file executable.
 ## Usage
 
 `./classipy_C` # CUI banners  
