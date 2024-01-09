@@ -15,7 +15,7 @@ pip3 install wand
 ```
 ## Directions
 Each Classipy script runs from it's current directory and outputs to the desktop. Therefore place the script into your folder with screenshots.  
-I you'd like you can edit the files to hardcode different directories.  
+If you'd like you can edit the files to make the directories different and/or hardcoded.  
 
 That's it! Just remember to make the file executable.
 ## Usage
