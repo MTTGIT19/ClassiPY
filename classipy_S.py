@@ -49,4 +49,4 @@ def label_folder(input_folder, output_folder):
 
                 add_banner_and_border_to_image(input_path, output_path)
 
-label_folder(input_folder, output_folder)
+label_folder(current_directory, output_folder)
