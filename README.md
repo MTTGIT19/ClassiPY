@@ -1,4 +1,4 @@
-# ClassiPY Banner
+# ClassiPY Images
 Automatic Image labeler. *Automagically* adds the following to ALL images in a folder. 
 1. A classification banner.
 2. The corresponding classification to the file name.
