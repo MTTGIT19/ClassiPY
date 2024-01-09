@@ -30,11 +30,11 @@ That's it! Just remember to make the file executable.
 <img src="https://github.com/MTTGIT19/ClassiPY/assets/89365060/3c1409e0-ce45-4fd6-b47e-1dedf492cece" width= "350" height="300"><br>
 
 #### After classipy:  
-<img src="https://github.com/MTTGIT19/ClassiPY/assets/89365060/ad45bb69-5e49-4747-986a-b8f93474d325" width= "350" height="300">
-<img src="https://github.com/MTTGIT19/ClassiPY/assets/89365060/4379eaf0-4ed9-486c-9617-bbfd01545a48" width= "350" height="300"><br>   
+<img src="https://github.com/MTTGIT19/ClassiPY/assets/89365060/e16b1464-9404-45da-b19c-6fa72d98a0f5" width= "350" height="300">
+<img src="https://github.com/MTTGIT19/ClassiPY/assets/89365060/1cb2f95b-109b-48d9-82d2-e5274ecb7def" width= "350" height="300"><br>   
 
 #### Renaming:<br>  
 <img src="https://github.com/MTTGIT19/ClassiPY/assets/89365060/e76df50f-4232-40dc-b0dc-596b15755fe5" width= "500">
 
 ## Notes
-Currently tested/working for Linux, feedback welcome.
+Windows version in progress. Currently tested/working for Linux, feedback welcome.
