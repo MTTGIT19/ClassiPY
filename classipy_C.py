@@ -4,7 +4,7 @@ from wand.image import Image
 from wand.color import Color
 from wand.drawing import Drawing
 
-input_folder = '/home/' + os.getlogin() + '/Pictures/' ## CHANGE ME TO SCREENSHOT PATH ##
+input_folder = '/home/' + os.getlogin() + '/Pictures/' ## CHANGE THIS TO SCREENSHOT PATH ##
 output_folder = '/home/' + os.getlogin() + '/Desktop/CUI_IMAGES/' # Output location: default desktop
 
 def add_banner_and_border_to_image(input_image, output_image):
