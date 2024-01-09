@@ -4,8 +4,13 @@ from wand.image import Image
 from wand.color import Color
 from wand.drawing import Drawing
 
-input_folder = '/home/' + os.getlogin() + '/Pictures/' ## CHANGE THIS TO SCREENSHOT PATH ##
-output_folder = '/home/' + os.getlogin() + '/Desktop/SECRET_IMAGES/' # Output location: default desktop
+current_directory = os.path.dirname(os.path.abspath(__file__))
+input_folder = os.path.join(current_directory, 'input_images')  # Folder named input_images
+output_folder = ('/home/'+ os.getlogin() +'/Desktop/SECRET_IMAGES/')  # Folder named output_images
+
+# If you'd like to get fancy you can edit the next two lines to change the input/output paths. 
+#input_folder = '/home/' + os.getlogin() + '/Downloads/screenshots1/' ## CHANGE ME TO SCREENSHOT PATH
+#output_folder = '/home/' + os.getlogin() + '/Desktop/SECRET_IMAGES/' # Output location: default desktop
 
 def add_banner_and_border_to_image(input_image, output_image):
     with Image(filename=input_image) as img:
