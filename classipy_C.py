@@ -6,7 +6,7 @@ from wand.drawing import Drawing
 
 current_directory = os.path.dirname(os.path.abspath(__file__))
 input_folder = os.path.join(current_directory, 'input_images')  # Folder named input_images
-output_folder = ('/home/'+ os.getlogin() +'/Desktop/SECRET_IMAGES/')  # Folder named output_images
+output_folder = ('/home/'+ os.getlogin() +'/Desktop/CUI_IMAGES/')  # Folder named output_images
 
 # If you'd like to get fancy you can edit the next two lines to change the input/output paths. 
 #input_folder = '/home/' + os.getlogin() + '/Downloads/screenshots1/' ## CHANGE ME TO SCREENSHOT PATH
@@ -45,7 +45,7 @@ def label_folder(input_folder, output_folder):
         for filename in files:
             if filename.lower().endswith(".jpg") or filename.lower().endswith(".png"):
                 input_path = os.path.join(root, filename)
-                output_path = os.path.join(output_folder, f"(S) {filename}")
+                output_path = os.path.join(output_folder, f"(CUI) {filename}")
 
                 add_banner_and_border_to_image(input_path, output_path)
 
