@@ -6,28 +6,27 @@ Automatic Image labeler. *Automagically* adds the following to ALL images in a f
 - The labeled images are then all dumped into a folder on the desktop. Works on .JPG and .PNG and .JPEG
 
 ## :one: Installation
-Requirements:  
-```
-Python3
-```
-```
-pip3 install wand
-```
-On Windows you'll need to install Wand manually by downloading [ImageMagick](https://imagemagick.org/script/download.php#google_vignette)
-## :two: Directions
+[Linux Requirements]  
+- `Python3`
+- `Wand` (Utilize `pip3 install wand`)  
+
+[Windows Requirements]  
+- `Python3`
+- `ImageMagick` - You'll need to install this manually by downloading the latest [ImageMagick](https://imagemagick.org/script/download.php#windows) for Windows.
+
 #### Required flags:  
 ` -I  ` = /Path/to/orginal/images/  
 ` -C ` = CUI or S  
 #### Optional flags:  
-` -O ` = /NEW_FOLDER <br>  
-:bangbang: **BY DEFAULT FILES WILL DUMP INTO THE SAME DIRECTORY AS THE ORIGINALS unless you specify the -O flag. See examples below.**
+` -O ` = /newfolder <br>  
+:bangbang: **By default images will dump into the same directory as the orgiinals UNLESS you specify the -O flag** ‼️
 ## :three: Examples
 #### CUI banner labels
-`./classiPY -I <image directory> -C CUI` 
+`python3 classiPY.py -I <image directory> -C CUI` 
 #### Secret banners
-`./classiPY -I <image directory> -C S` 
+`python3 classiPY.py -I <image directory> -C S` 
 #### CUI banner with output to a separate folder
-`./classiPY -I <image directory> -C CUI -O CUI_IMAGES`
+`python3 classiPY.py -I <image directory> -C CUI -O CUI_IMAGES`
 
  ## :three: Whats it look like:   
 #### Orginal Images:<br>
