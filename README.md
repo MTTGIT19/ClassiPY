@@ -25,7 +25,7 @@ pip3 install wand
 `./classiPY -I <image directory> -C CUI` 
 #### Secret banners
 `./classiPY -I <image directory> -C S` 
-#### CUI banner with seperate folder
+#### CUI banner with output to a separate folder
 `./classiPY -I <image directory> -C CUI -O CUI_IMAGES`
 
  ## :three: Whats it look like:   
