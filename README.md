@@ -5,7 +5,7 @@ Automatic Image labeler. *Automagically* adds the following to ALL images in a f
 3. A small black border to the image.<br>
 The labeled images are then all dumped into a folder on the desktop. Works on .JPG and .PNG
 
-## Installation
+## :one: Installation
 Requirements:  
 ```
 Python3
@@ -13,20 +13,23 @@ Python3
 ```
 pip3 install wand
 ```
-## Directions
-Each Classipy script runs from it's current directory and outputs to the desktop. Therefore place the script into your folder with screenshots.  
-If you'd like you can edit the files to make the directories different and/or hardcoded.  
+## :two: Directions
+#### [Flags]  
+#### Required:  
+` -I  ` = /Path/to/orginal/images/  
+` -C ` = CUI or S  
+#### Optional:  
+` -O ` = /NEW_FOLDER <br>  
+:bangbang: **BY DEFAULT FILES WILL DUMP INTO THE SAME DIRECTORY AS THE ORIGINALS Unless you speficiy the -O flag. See examples below.**
+## :three: Examples
+### CUI banner labels
+`./classiPY -I <image directory> -C CUI` 
+### Secret banners
+`./classiPY -I <image directory> -C S` 
+### CUI banner with seperate folder
+`./classiPY -I <image directory> -C CUI -O CUI_IMAGES`
 
-That's it! Just remember to make the file executable.
-## Usage
-
-`./classiPY -I <image directory> -C CUI` # CUI banners  
-
-`./classipy_S -I <image directory> -C S` # Secret banners
-
-Defaults to placing labelled files in same folder, can specify with `-O` a different output directory.
-
- ## Examples:   
+ ## :three: Whats it look like:   
 #### Orginal Images:<br>
 <img src="https://github.com/MTTGIT19/ClassiPY/assets/89365060/20ab6abf-ca50-48e2-b0b3-c062b15e36e3" width= "350" height="300">
 <img src="https://github.com/MTTGIT19/ClassiPY/assets/89365060/3c1409e0-ce45-4fd6-b47e-1dedf492cece" width= "350" height="300"><br>
@@ -39,4 +42,4 @@ Defaults to placing labelled files in same folder, can specify with `-O` a diffe
 <img src="https://github.com/MTTGIT19/ClassiPY/assets/89365060/e76df50f-4232-40dc-b0dc-596b15755fe5" width= "500">
 
 ## Notes
-Windows version in progress. Currently tested/working for Linux, feedback welcome.
+* *New* - Works for both Windows or Linux. Feedback and suggestions welcome. 
