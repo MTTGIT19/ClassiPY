@@ -1,18 +1,19 @@
 #!/usr/bin/env python3
+
 import argparse
 import pathlib
-import os
 from glob import glob
 from wand.image import Image
 from wand.color import Color
 from wand.drawing import Drawing
 
-banner_percentage_of_height = 5  # Adjust the percentage as needed
-font_percentage_of_banner = 50  # Adjust the font size percentage as needed
+banner_percent_of_height = 5  # Adjust the percentage as needed
+font_percent_of_banner = 50  # Adjust the font size percentage as needed
+extensions = ['.jpg', '.png', '.jpeg'] # file extensions to look for
 
 def add_banner(input_image, output_image, classification='CUI'):
     with Image(filename=input_image) as img:
-        banner_height = int(img.height * (banner_percentage_of_height / 100))
+        banner_height = int(img.height * (banner_percent_of_height / 100))
         banner = Image(width=img.width, height=banner_height)
         if classification=='CUI':
             banner.background_color = Color('#502b85')
@@ -21,10 +22,9 @@ def add_banner(input_image, output_image, classification='CUI'):
         banner.alpha_channel = 'remove'
         
         # Calculate font size based on a percentage of the banner's height
-        font_size = int(banner_height * (font_percentage_of_banner / 100))
+        font_size = int(banner_height * (font_percent_of_banner / 100))
 
         with Drawing() as draw:
-            #draw.font = '/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf'  # Path to your font file or try 'Times new roman'
             draw.font_size = font_size
             draw.fill_color = Color('white')
             draw.text_alignment = 'center'
@@ -41,8 +41,6 @@ def add_banner(input_image, output_image, classification='CUI'):
                           y=img.height + banner_height +
                           banner_height // 2 + font_size // 3, body='SECRET')                
             draw(banner)
-           # Calculate font size based on the banner's height
-           # font_size = int(banner_height * 6)
 
         with Image(filename=input_image) as img:  # Re-open the image to avoid closure issue
             with Image(width=img.width,
@@ -58,9 +56,8 @@ def add_banner(input_image, output_image, classification='CUI'):
 
 def label_folder(input_folder, output_folder, classification='CUI'):
     if not pathlib.Path(output_folder).exists():
-        os.makedirs(output_folder)
+        output_folder.mkdir(parents=True, exist_ok=True)
 
-    extensions = ['.jpg', '.png', '.jpeg']
     image_files = [x for x in pathlib.Path(input_folder).iterdir()
                    if x.suffix.lower() in extensions]
     
@@ -89,7 +86,6 @@ def main():
         args.output = args.image
     else:
         args.output = pathlib.Path(args.output).resolve()
-    cwd = pathlib.Path.cwd()
     label_folder(args.image, args.output, args.classification)
 
 if __name__=='__main__':

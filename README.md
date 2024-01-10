@@ -20,9 +20,11 @@ If you'd like you can edit the files to make the directories different and/or ha
 That's it! Just remember to make the file executable.
 ## Usage
 
-`./classipy_C` # CUI banners  
+`./classiPY -I <image directory> -C CUI` # CUI banners  
 
-`./classipy_S` # Secret banners  
+`./classipy_S -I <image directory> -C S` # Secret banners
+
+Defaults to placing labelled files in same folder, can specify with `-O` a different output directory.
 
  ## Examples:   
 #### Orginal Images:<br>
