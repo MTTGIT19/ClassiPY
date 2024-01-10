@@ -1,9 +1,9 @@
 # ClassiPY Images
 Automatic Image labeler. *Automagically* adds the following to ALL images in a folder. 
-1. A classification banner.
-2. The corresponding classification to the file name.
-3. A small black border to the image.<br>
-The labeled images are then all dumped into a folder on the desktop. Works on .JPG and .PNG
+- A classification banner.
+-  The corresponding classification to the file name.
+- A small black border to the image.<br>
+- The labeled images are then all dumped into a folder on the desktop. Works on .JPG and .PNG and .JPEG
 
 ## :one: Installation
 Requirements:  
@@ -14,19 +14,18 @@ Python3
 pip3 install wand
 ```
 ## :two: Directions
-#### [Flags]  
-#### Required:  
+#### Required flags:  
 ` -I  ` = /Path/to/orginal/images/  
 ` -C ` = CUI or S  
-#### Optional:  
+#### Optional flags:  
 ` -O ` = /NEW_FOLDER <br>  
 :bangbang: **BY DEFAULT FILES WILL DUMP INTO THE SAME DIRECTORY AS THE ORIGINALS Unless you speficiy the -O flag. See examples below.**
 ## :three: Examples
-### CUI banner labels
+#### CUI banner labels
 `./classiPY -I <image directory> -C CUI` 
-### Secret banners
+#### Secret banners
 `./classiPY -I <image directory> -C S` 
-### CUI banner with seperate folder
+#### CUI banner with seperate folder
 `./classiPY -I <image directory> -C CUI -O CUI_IMAGES`
 
  ## :three: Whats it look like:   
