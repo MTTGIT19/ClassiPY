@@ -2,11 +2,9 @@
 
 import argparse
 import pathlib
-from glob import glob
 from wand.image import Image
 from wand.color import Color
 from wand.drawing import Drawing
-from wand import font
 
 banner_percent_of_height = 5  # Adjust the percentage as needed
 font_percent_of_banner = 50  # Adjust the font size percentage as needed
