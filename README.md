@@ -19,7 +19,7 @@ pip3 install wand
 ` -C ` = CUI or S  
 #### Optional flags:  
 ` -O ` = /NEW_FOLDER <br>  
-:bangbang: **BY DEFAULT FILES WILL DUMP INTO THE SAME DIRECTORY AS THE ORIGINALS Unless you speficiy the -O flag. See examples below.**
+:bangbang: **BY DEFAULT FILES WILL DUMP INTO THE SAME DIRECTORY AS THE ORIGINALS unless you specify the -O flag. See examples below.**
 ## :three: Examples
 #### CUI banner labels
 `./classiPY -I <image directory> -C CUI` 
