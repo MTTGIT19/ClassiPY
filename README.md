@@ -1,9 +1,9 @@
 # ClassiPY Images
-Automatic Image labeler. *Automagically* adds the following to ALL images in a folder. 
+Automatic Image labeler (for .JPG, .PNG, & .JPEG). *Automagically* adds the following to ALL images in a folder:
 - A classification banner.
--  The corresponding classification to the file name.
-- A small black border to the image.<br>
-- The labeled images are then all dumped into a folder on the desktop. Works on .JPG and .PNG and .JPEG
+- The corresponding classification to the file name.
+- A small black border to the image.
+- [Optionally] The labeled images are all placed in a separate folder. 
 
 ## :one: Installation
 [Linux Requirements]  
@@ -20,7 +20,7 @@ Automatic Image labeler. *Automagically* adds the following to ALL images in a f
 #### Optional flags:  
 ` -O ` = /newfolder <br>  
 :bangbang: **By default images will dump into the same directory as the orgiinals UNLESS you specify the -O flag** ‼️
-## :three: Examples
+## :two: Examples
 #### CUI banner labels
 `python3 classiPY.py -I <image directory> -C CUI` 
 #### Secret banners
@@ -37,7 +37,8 @@ Automatic Image labeler. *Automagically* adds the following to ALL images in a f
 <img src="https://github.com/MTTGIT19/ClassiPY/assets/89365060/e16b1464-9404-45da-b19c-6fa72d98a0f5" width= "350" height="300">
 <img src="https://github.com/MTTGIT19/ClassiPY/assets/89365060/1cb2f95b-109b-48d9-82d2-e5274ecb7def" width= "350" height="300"><br>   
 
-#### Renaming:<br>  
+#### Separate Output:<br>
+`python3 classiPY.py -I /Home/Downloads/screenshots1 -C S -O /Home/Desktop/SECRET_IMAGES`
 <img src="https://github.com/MTTGIT19/ClassiPY/assets/89365060/e76df50f-4232-40dc-b0dc-596b15755fe5" width= "500">
 
 ## Notes
