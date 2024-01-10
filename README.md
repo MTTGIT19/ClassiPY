@@ -13,6 +13,7 @@ Python3
 ```
 pip3 install wand
 ```
+On Windows you'll need to install Wand manually by downloading [ImageMagick](https://imagemagick.org/script/download.php#google_vignette)
 ## :two: Directions
 #### Required flags:  
 ` -I  ` = /Path/to/orginal/images/  
