@@ -6,6 +6,7 @@ from glob import glob
 from wand.image import Image
 from wand.color import Color
 from wand.drawing import Drawing
+from wand import font
 
 banner_percent_of_height = 5  # Adjust the percentage as needed
 font_percent_of_banner = 50  # Adjust the font size percentage as needed
@@ -22,10 +23,11 @@ def add_banner(input_image, output_image, classification='CUI'):
         banner.alpha_channel = 'remove'
         
         # Calculate font size based on a percentage of the banner's height
-        font_size = int(banner_height * (font_percent_of_banner / 100))
+        font_size = int(banner_height * (font_percent_of_banner / 90))
 
         with Drawing() as draw:
             draw.font_size = font_size
+            draw.font_weight = 700  # Bold font weight
             draw.fill_color = Color('white')
             draw.text_alignment = 'center'
             if classification=='CUI':
@@ -70,22 +72,25 @@ def label_folder(input_folder, output_folder, classification='CUI'):
                                        f"(S) {image_file.name}")
         add_banner(image_file, output_file, classification)
 
-
 def main():
-    parser = argparse.ArgumentParser(description="Add classificaiton banner to folder of images")
-    parser.add_argument('--image', '-I', required=True, type=str,
-                        help='path to image folder')
-    parser.add_argument('--output', '-O', required=False, type=str,
-                        help='path folder of tagged images')
-    parser.add_argument('--classification', '-C', required=True, type=str,
-                        choices=['CUI', 'S'],
-                        help='Level to classify images: CUI or S')
+    parser = argparse.ArgumentParser(description="Adds classification banners to a folder of images")
+    
+    # Adding required arguments as group
+    required_group = parser.add_argument_group('Required arguments')
+    required_group.add_argument('--image', '-I', required=True, type=str, help='Folder path to orginal images')
+    required_group.add_argument('--classification', '-C', required=True, type=str, choices=['CUI', 'S'],
+                                help='Classification level (S or CUI)')
+
+    # Adding optional argument as group
+    optional_group = parser.add_argument_group('Optional arguments')
+    optional_group.add_argument('--output', '-O', type=str, help='Folder path for newly labeled images (will be created if it does not exist)')
+
     args = parser.parse_args()
+
+    # Resolving and setting absolute paths using pathlib
     args.image = pathlib.Path(args.image).resolve()
-    if not args.output:
-        args.output = args.image
-    else:
-        args.output = pathlib.Path(args.output).resolve()
+    args.output = args.image if args.output is None else pathlib.Path(args.output).resolve()
+
     label_folder(args.image, args.output, args.classification)
 
 if __name__=='__main__':
