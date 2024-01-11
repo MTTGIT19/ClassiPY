@@ -90,7 +90,7 @@ def label_folder(input_folder, output_folder, classification="CUI"):
 
     for image_file in image_files:
         output_file = Path(
-            output_folder, f"({markings.get_symbol(classification)}){image_file.name}"
+            output_folder, f"({markings.get_symbol(classification)}) {image_file.name}"
         )
         add_banner(image_file, output_file, classification)
 
