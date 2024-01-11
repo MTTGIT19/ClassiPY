@@ -16,3 +16,6 @@ share/python-wheels/
 *.egg
 dist/
 *$py.class
+.venv/
+.pytest_cache/
+.mypy_cache/
