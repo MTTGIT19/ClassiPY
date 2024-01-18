@@ -20,21 +20,27 @@ class Markings:
             return "CUI"
         elif classification == "S":
             return "S"
+        elif classification == "U":
+            return "U"
 
     def get_long_name(self, classification):
         if classification == "CUI":
             return "CUI"
         elif classification == "S":
             return "SECRET"
+        elif classification == "U":
+            return "UNCLASSIFIED"
 
     def get_color(self, classification):
         if classification == "CUI":
             return "#502b85"
         elif classification == "S":
             return "red"
+        elif classification == "U":
+            return "green"
 
 
-markings = Markings(["CUI", "S"])
+markings = Markings(["CUI", "S", "U"])
 
 
 def add_banner(input_image, output_image, classification="CUI"):
@@ -59,7 +65,7 @@ def add_banner(input_image, output_image, classification="CUI"):
             )
             draw.text(
                 x=banner.width // 2,
-                y=img.height + banner_height + banner_height // 2 + font_size // 3,
+                y=img.height + 2 * banner_height // 2 + font_size // 3,
                 body=markings.get_long_name(classification),
             )
             draw(banner)
@@ -75,7 +81,8 @@ def add_banner(input_image, output_image, classification="CUI"):
                 result.composite(banner, top=img.height + banner_height, left=0)
                 border_style = 6  # Change border
                 result.border(
-                    color=Color("black"), width=border_style, height=border_style
+                    color=Color("black"), width=border_style,
+                    height=border_style
                 )
                 result.save(filename=output_image)
 
@@ -103,7 +110,8 @@ def main():
     # Adding required arguments as group
     required_group = parser.add_argument_group("Required arguments")
     required_group.add_argument(
-        "--image", "-I", required=True, type=str, help="Folder path to orginal images"
+        "--images", "-I", required=True, type=str,
+        help="Folder path to orginal images"
     )
     required_group.add_argument(
         "--classification",
@@ -126,10 +134,10 @@ def main():
     args = parser.parse_args()
 
     # Resolving and setting absolute paths using pathlib
-    args.image = Path(args.image).resolve()
-    args.output = args.image if args.output is None else Path(args.output).resolve()
+    args.images = Path(args.images).resolve()
+    args.output = args.images if args.output is None else Path(args.output).resolve()
 
-    label_folder(args.image, args.output, args.classification)
+    label_folder(args.images, args.output, args.classification)
 
 
 if __name__ == "__main__":
