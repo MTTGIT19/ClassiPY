@@ -6,28 +6,29 @@ Automatic Image labeler (for .JPG, .PNG, & .JPEG). *Automagically* adds the foll
 - [Optionally] The labeled images are all placed in a separate folder. 
 
 ## :one: Installation
+Requires `Python3`
 #### Linux Requirements
-- `Python3`
 - `Wand` (Utilize `pip3 install wand`)  
 
 #### Windows Requirements
-- `Python3`
 - `ImageMagick` (Manually downloading the latest [ImageMagick](https://imagemagick.org/script/download.php#windows)).
 
 ## :two: Usage
 
 #### Required flags:  
 ` -I ` = /Path/to/orginal/images/  
-` -C ` = CUI or S  
+` -C ` = U, CUI, or S  
 #### Optional flags:  
 ` -O ` = /newfolder <br>  
 :bangbang: **By default images will dump into the same directory as the orginals UNLESS you specify the -O flag** ‼️
 
 ## :three: Examples
-#### CUI banner labels
-`python3 classiPY.py -I <image directory> -C CUI` 
+#### Unclassified banners
+`python3 classiPY.py -I <image directory> -C U`
+#### CUI banners
+`python3 classiPY.py -I <image directory> -C CUI`
 #### Secret banners
-`python3 classiPY.py -I <image directory> -C S` 
+`python3 classiPY.py -I <image directory> -C S`
 #### CUI banner with output to a separate folder
 `python3 classiPY.py -I <image directory> -C CUI -O CUI_IMAGES`
 
