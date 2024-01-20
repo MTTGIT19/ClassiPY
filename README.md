@@ -20,7 +20,7 @@ Requires `Python3`
 ` -C ` = U, CUI, or S  
 #### Optional flags:  
 ` -O ` = /newfolder <br>  
-:bangbang: **By default images will dump into the same directory as the orginals UNLESS you specify the -O flag** ‼️
+:bangbang: **By default images will dump into the same directory as the originals UNLESS you specify the -O flag** ‼️
 
 ## :three: Examples
 #### Unclassified banners
