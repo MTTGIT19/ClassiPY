@@ -1,14 +1,14 @@
 #!/usr/bin/env python3
-
+"""This module provides an interface for labelling all images in a folder"""
 import argparse
 from pathlib import Path
 from wand.image import Image
 from wand.color import Color
 from wand.drawing import Drawing
 
-banner_percent_of_height = 5  # Adjust the percentage as needed
-font_percent_of_banner = 50  # Adjust the font size percentage as needed
-extensions = [".jpg", ".png", ".jpeg"]  # file extensions to look for
+BANNER_PERCENT_OF_HEIGHT = 5  # Adjust the percentage as needed
+FONT_PERCENT_OF_BANNER = 50  # Adjust the font size percentage as needed
+EXTS = [".jpg", ".png", ".jpeg"]  # file extensions to look for
 
 
 class Markings:
@@ -45,13 +45,13 @@ markings = Markings(["CUI", "S", "U"])
 
 def add_banner(input_image, output_image, classification="CUI"):
     with Image(filename=input_image) as img:
-        banner_height = int(img.height * (banner_percent_of_height / 100))
+        banner_height = int(img.height * (BANNER_PERCENT_OF_HEIGHT / 100))
         banner = Image(width=img.width, height=banner_height)
         banner.background_color = markings.get_color(classification)
         banner.alpha_channel = "remove"
 
         # Calculate font size based on a percentage of the banner's height
-        font_size = int(banner_height * (font_percent_of_banner / 90))
+        font_size = int(banner_height * (FONT_PERCENT_OF_BANNER / 90))
 
         with Drawing() as draw:
             draw.font_size = font_size
@@ -92,7 +92,7 @@ def label_folder(input_folder, output_folder, classification="CUI"):
         output_folder.mkdir(parents=True, exist_ok=True)
 
     image_files = [
-        x for x in Path(input_folder).iterdir() if x.suffix.lower() in extensions
+        x for x in Path(input_folder).iterdir() if x.suffix.lower() in EXTS
     ]
 
     for image_file in image_files:
