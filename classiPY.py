@@ -11,38 +11,40 @@ FONT_PERCENT_OF_BANNER = 50  # Adjust the font size percentage as needed
 EXTS = [".jpg", ".png", ".jpeg"]  # file extensions to look for
 
 
+"""Class to define marking options. Currently: Unclass, CUI, & Secret"""
 class Markings:
     def __init__(self, classifications):
         self.classifications = classifications
 
     def get_symbol(self, classification):
-        if classification == "CUI":
-            return "CUI"
-        elif classification == "S":
-            return "S"
-        elif classification == "U":
-            return "U"
+        return classification
+
 
     def get_long_name(self, classification):
+        out = None
         if classification == "CUI":
-            return "CUI"
+            out = "CUI"
         elif classification == "S":
-            return "SECRET"
+            out = "SECRET"
         elif classification == "U":
-            return "UNCLASSIFIED"
+            out = "UNCLASSIFIED"
+        return out
 
     def get_color(self, classification):
+        out = None
         if classification == "CUI":
-            return "#502b85"
+            out = "#502b85"
         elif classification == "S":
-            return "red"
+            out =  "red"
         elif classification == "U":
-            return "green"
+            out =  "green"
+        return out
 
 
 markings = Markings(["CUI", "S", "U"])
 
 
+"""Function to add top & bottom portion markings to image file"""
 def add_banner(input_image, output_image, classification="CUI"):
     with Image(filename=input_image) as img:
         banner_height = int(img.height * (BANNER_PERCENT_OF_HEIGHT / 100))
@@ -87,6 +89,8 @@ def add_banner(input_image, output_image, classification="CUI"):
                 result.save(filename=output_image)
 
 
+"""Function to rename all files with classification marking
+Calls the `add_banner` function to mark images """
 def label_folder(input_folder, output_folder, classification="CUI"):
     if not Path(output_folder).exists():
         output_folder.mkdir(parents=True, exist_ok=True)
@@ -102,6 +106,7 @@ def label_folder(input_folder, output_folder, classification="CUI"):
         add_banner(image_file, output_file, classification)
 
 
+"""Main function"""
 def main():
     parser = argparse.ArgumentParser(
         description="Adds classification banners to a folder of images"
