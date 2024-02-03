@@ -8,12 +8,12 @@ from wand.drawing import Drawing
 
 BANNER_PERCENT_OF_HEIGHT = 5  # Adjust the percentage as needed
 FONT_PERCENT_OF_BANNER = 50  # Adjust the font size percentage as needed
-EXTS = [".jpg", ".png", ".jpeg"]  # file extensions to look for
-
+EXTS = [".jpg", ".png", ".jpeg", "*.webp"]  # file extensions to look for
+MARKS = ["CUI", "S", "U"]
 
 class Markings:
     """Class to define marking options. Currently: Unclass, CUI, & Secret"""
-    def __init__(self, classifications):
+    def __init__(self, classifications=["CUI", "S", "U"]):
         self.classifications = classifications
 
     def get_symbol(self, classification):
@@ -43,7 +43,7 @@ class Markings:
         return out
 
 
-markings = Markings(["CUI", "S", "U"])
+markings = Markings()
 
 
 def add_banner(input_image, output_image, classification="CUI"):
