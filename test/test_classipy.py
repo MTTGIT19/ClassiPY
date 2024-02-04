@@ -32,7 +32,8 @@ def test_banners(level):
     classiPY.label_folder(Path('./figs'), Path(tempdir.name),
                           classification=level)
     filenames = list(Path(tempdir.name).glob('*.*'))
+    assert len(filenames) == len(list(Path("./figs")))
     for filename in filenames:
-        assert re.search("^({})*".format(level), str(filename))
+        assert re.search("^({}) *".format(level), str(filename))
     tempdir.cleanup()
     
