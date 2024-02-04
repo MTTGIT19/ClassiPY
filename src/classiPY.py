@@ -8,7 +8,7 @@ from wand.drawing import Drawing
 
 BANNER_PERCENT_OF_HEIGHT = 5  # Adjust the percentage as needed
 FONT_PERCENT_OF_BANNER = 50  # Adjust the font size percentage as needed
-EXTS = [".jpg", ".png", ".jpeg", "*.webp"]  # file extensions to look for
+EXTS = [".jpg", ".png", ".jpeg"]  # file extensions to look for
 MARKS = ["CUI", "S", "U"]
 
 class Markings:
