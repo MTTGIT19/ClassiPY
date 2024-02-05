@@ -60,7 +60,7 @@ def test_banners(level, color):
     num_test_files = len(list(Path("./figs").glob('[!.]*.*')))
     assert len(filenames) == num_test_files
     for filename in filenames:
-        assert re.search("^({})*".format(level), filename.name)
+        assert re.search(f"^({level})*", filename.name)
         banner_color = count_pixel_colors(filename)
         correct_color = (Color(color).red_int8,
                          Color(color).green_int8,
