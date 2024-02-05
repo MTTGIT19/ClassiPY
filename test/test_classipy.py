@@ -1,11 +1,12 @@
+"""Automated test cases for classiPY functions"""
 import math
-import pytest
 import re
 import tempfile
 from pathlib import Path
-from src import classiPY
+import pytest
 from wand.image import Image
 from wand.color import Color
+from src import classiPY
 
 
 def test_markings():
@@ -44,7 +45,7 @@ def count_pixel_colors(filename, banner_percent=5):
                        blob[cursor + 2]))
     most_freq = max(set(pixels), key = pixels.count)
     return most_freq
-    
+
 @pytest.mark.parametrize("level, color", [
     ("CUI", "#502b85"),
     ("S", "red"),
@@ -52,7 +53,6 @@ def count_pixel_colors(filename, banner_percent=5):
     ])
 def test_banners(level, color):
     """Verify correct file renaming, banner colors"""
-    markings = classiPY.Markings()
     tempdir = tempfile.TemporaryDirectory(dir=Path('./figs'))
     classiPY.label_folder(Path('./figs'), Path(tempdir.name),
                           classification=level)
@@ -68,4 +68,3 @@ def test_banners(level, color):
         for i, j in zip (banner_color, correct_color):
             assert math.isclose(i, j, abs_tol=2)
     tempdir.cleanup()
-    

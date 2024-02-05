@@ -13,7 +13,7 @@ MARKS = ["CUI", "S", "U"]
 
 class Markings:
     """Class to define marking options. Currently: Unclass, CUI, & Secret"""
-    def __init__(self, classifications=["CUI", "S", "U"]):
+    def __init__(self, classifications=MARKS):
         self.classifications = classifications
 
     def get_symbol(self, classification):
