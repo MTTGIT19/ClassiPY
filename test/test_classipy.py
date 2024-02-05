@@ -53,18 +53,17 @@ def count_pixel_colors(filename, banner_percent=5):
     ])
 def test_banners(level, color):
     """Verify correct file renaming, banner colors"""
-    tempdir = tempfile.TemporaryDirectory(dir=Path('./figs'))
-    classiPY.label_folder(Path('./figs'), Path(tempdir.name),
-                          classification=level)
-    filenames = list(Path(tempdir.name).glob('*.*'))
-    num_test_files = len(list(Path("./figs").glob('[!.]*.*')))
-    assert len(filenames) == num_test_files
-    for filename in filenames:
-        assert re.search(f"^({level})*", filename.name)
-        banner_color = count_pixel_colors(filename)
-        correct_color = (Color(color).red_int8,
-                         Color(color).green_int8,
-                         Color(color).blue_int8)
-        for i, j in zip (banner_color, correct_color):
-            assert math.isclose(i, j, abs_tol=2)
-    tempdir.cleanup()
+    with tempfile.TemporaryDirectory(dir=Path('./figs')) as tempdir:
+        classiPY.label_folder(Path('./figs'), Path(tempdir.name),
+                              classification=level)
+        filenames = list(Path(tempdir.name).glob('*.*'))
+        num_test_files = len(list(Path("./figs").glob('[!.]*.*')))
+        assert len(filenames) == num_test_files
+        for filename in filenames:
+            assert re.search(f"^({level})*", filename.name)
+            banner_color = count_pixel_colors(filename)
+            correct_color = (Color(color).red_int8,
+                             Color(color).green_int8,
+                             Color(color).blue_int8)
+            for i, j in zip (banner_color, correct_color):
+                assert math.isclose(i, j, abs_tol=2)
