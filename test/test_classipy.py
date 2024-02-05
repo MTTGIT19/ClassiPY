@@ -17,7 +17,7 @@ def test_markings():
         assert level == markings.get_symbol(level)
 
 
-@pytest.mark.parametrize("level,full_name,color",[
+@pytest.mark.parametrize("level,full_name,color", [
     ("CUI", "CUI", "#502b85"),
     ("S", "SECRET", "red"),
     ("U", "UNCLASSIFIED", "green"),
@@ -40,11 +40,12 @@ def count_pixel_colors(filename, banner_percent=5):
         width, height = img.width, img.height
     top_banner = int(width * height * (banner_percent / 100) * 3)
     for cursor in range(width * 3, top_banner, 3):
-        pixels.append((blob[cursor],
-                       blob[cursor + 1],
-                       blob[cursor + 2]))
-    most_freq = max(set(pixels), key = pixels.count)
+        pixels.append(
+            (blob[cursor], blob[cursor + 1], blob[cursor + 2])
+        )
+    most_freq = max(set(pixels), key=pixels.count)
     return most_freq
+
 
 @pytest.mark.parametrize("level, color", [
     ("CUI", "#502b85"),
@@ -62,8 +63,10 @@ def test_banners(level, color):
         for filename in filenames:
             assert re.search(f"^({level})*", filename.name)
             banner_color = count_pixel_colors(filename)
-            correct_color = (Color(color).red_int8,
-                             Color(color).green_int8,
-                             Color(color).blue_int8)
+            correct_color = (
+                Color(color).red_int8, Color(color).green_int8,
+                Color(color).blue_int8
+            )
             for i, j in zip (banner_color, correct_color):
                 assert math.isclose(i, j, abs_tol=2)
+

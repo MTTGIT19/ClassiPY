@@ -11,6 +11,7 @@ FONT_PERCENT_OF_BANNER = 50  # Adjust the font size percentage as needed
 EXTS = (".jpg", ".png", ".jpeg")  # file extensions to look for
 MARKS = ("CUI", "S", "U")
 
+
 class Markings:
     """Class to define marking options. Currently: Unclass, CUI, & Secret"""
     def __init__(self, classifications=MARKS):
@@ -37,9 +38,9 @@ class Markings:
         if classification == "CUI":
             out = "#502b85"
         elif classification == "S":
-            out =  "red"
+            out = "red"
         elif classification == "U":
-            out =  "green"
+            out = "green"
         return out
 
 
