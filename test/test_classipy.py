@@ -54,7 +54,7 @@ def count_pixel_colors(filename, banner_percent=5):
     ])
 def test_banners(level, color):
     """Verify correct file renaming, banner colors"""
-    with tempfile.TemporaryDirectory(dir=Path('./figs').resolve()) as tempdir:
+    with tempfile.TemporaryDirectory(dir=Path('/tmp').resolve()) as tempdir:
         classiPY.label_folder(
             Path('./figs').resolve(), Path(tempdir.name),
             classification=level
