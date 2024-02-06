@@ -56,11 +56,11 @@ def test_banners(level, color):
     """Verify correct file renaming, banner colors"""
     with tempfile.TemporaryDirectory(dir=Path('/tmp').resolve()) as tempdir:
         classiPY.label_folder(
-            Path('./figs').resolve(), Path(tempdir.name),
+            Path('./test/figs').resolve(), Path(tempdir),
             classification=level
         )
-        filenames = list(Path(tempdir.name).glob('*.*'))
-        num_test_files = len(list(Path("./figs").resolve().glob('[!.]*.*')))
+        filenames = list(Path(tempdir).glob('*.*'))
+        num_test_files = len(list(Path("./test/figs").resolve().glob('[!.]*.*')))
         assert len(filenames) == num_test_files
         for filename in filenames:
             assert re.search(f"^({level})*", filename.name)
