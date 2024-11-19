@@ -6,7 +6,7 @@ from wand.image import Image
 from wand.color import Color
 from wand.drawing import Drawing
 
-BANNER_PERCENT_OF_HEIGHT = 5  # Adjust the percentage as needed
+BANNER_PERCENT_OF_HEIGHT = 5  # Adjust the percentage as needed. Change line 53 if needed. 
 FONT_PERCENT_OF_BANNER = 50  # Adjust the font size percentage as needed
 EXTS = (".jpg", ".png", ".jpeg")  # file extensions to look for
 MARKS = ("CUI", "S", "U")
@@ -50,7 +50,7 @@ markings = Markings()
 def add_banner(input_image, output_image, classification="CUI"):
     """Function to add top & bottom portion markings to image file"""
     with Image(filename=input_image) as img:
-        banner_height = int(img.height * (BANNER_PERCENT_OF_HEIGHT / 100))
+        banner_height = int(30)  ## Alternative (img.height * (BANNER_PERCENT_OF_HEIGHT / 100))
         banner = Image(width=img.width, height=banner_height)
         banner.background_color = markings.get_color(classification)
         banner.alpha_channel = "remove"
